@@ -2,6 +2,14 @@
 
 이 프로젝트는 [Semantic Versioning](https://semver.org/)을 따릅니다.
 
+## [1.1.2] - 2026-04-02
+
+### Changed
+
+- README and README_KO now surface a top-level Codex quick-start section
+- added a copy-paste share snippet for installing and first-run prompting
+- bumped plugin version metadata to 1.1.2
+
 ## [1.1.1] - 2026-04-02
 
 ### Added

@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Version-1.1.1-brightgreen.svg" alt="Version">
+  <img src="https://img.shields.io/badge/Version-1.1.2-brightgreen.svg" alt="Version">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-Apache_2.0-blue.svg" alt="License"></a>
   <img src="https://img.shields.io/badge/Claude_Code-Plugin-purple.svg" alt="Claude Code Plugin">
   <img src="https://img.shields.io/badge/Codex-Plugin-orange.svg" alt="Codex Plugin">
@@ -21,6 +21,30 @@
 도메인/프로젝트에 맞는 하네스를 구성하고, 전문 에이전트를 정의하며, 에이전트가 사용할 스킬을 생성하는 메타 스킬.
 
 > 참고: 이 문서는 여전히 Claude Code 설명이 중심이다. Codex 사용 시에는 [README.md](README.md)의 `Codex` 설치 및 `skills-codex/` 안내를 함께 확인한다.
+
+## Codex 빠른 시작
+
+이 한 줄만 실행하면 된다:
+
+```shell
+curl -fsSL https://raw.githubusercontent.com/dio-vibe/harness/main/scripts/install-codex-plugin.sh | bash
+```
+
+그 다음 Codex를 재시작하거나 새 세션을 열고 이렇게 입력하면 된다:
+
+```text
+Build a Codex harness for this project
+```
+
+공유용 문구:
+
+```text
+Codex용 Harness 설치:
+curl -fsSL https://raw.githubusercontent.com/dio-vibe/harness/main/scripts/install-codex-plugin.sh | bash
+
+설치 후 Codex 재시작하고 이렇게 입력:
+Build a Codex harness for this project
+```
 
 ## 개요
 

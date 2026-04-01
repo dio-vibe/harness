@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Version-1.1.1-brightgreen.svg" alt="Version">
+  <img src="https://img.shields.io/badge/Version-1.1.2-brightgreen.svg" alt="Version">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-Apache_2.0-blue.svg" alt="License"></a>
   <img src="https://img.shields.io/badge/Claude_Code-Plugin-purple.svg" alt="Claude Code Plugin">
   <img src="https://img.shields.io/badge/Codex-Plugin-orange.svg" alt="Codex Plugin">
@@ -19,6 +19,30 @@
 **English** | [한국어](README_KO.md) | [日本語](README_JA.md)
 
 A meta-skill that designs domain-specific agent workflows, defines specialized agents, and generates the skills they use.
+
+## Quick Start for Codex
+
+Copy and paste this:
+
+```shell
+curl -fsSL https://raw.githubusercontent.com/dio-vibe/harness/main/scripts/install-codex-plugin.sh | bash
+```
+
+Then restart Codex or open a new session and try:
+
+```text
+Build a Codex harness for this project
+```
+
+Shareable install snippet:
+
+```text
+Install Harness for Codex:
+curl -fsSL https://raw.githubusercontent.com/dio-vibe/harness/main/scripts/install-codex-plugin.sh | bash
+
+Then restart Codex and say:
+Build a Codex harness for this project
+```
 
 ## Overview
 
