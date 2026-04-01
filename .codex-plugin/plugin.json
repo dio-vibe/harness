@@ -1,0 +1,46 @@
+{
+  "name": "harness",
+  "version": "1.1.0",
+  "description": "Codex-native harness meta-skill that designs domain-specific agent systems, reusable skills, and optional plugin packages for a target project.",
+  "author": {
+    "name": "dio-vibe",
+    "url": "https://github.com/dio-vibe"
+  },
+  "homepage": "https://github.com/dio-vibe/harness",
+  "repository": "https://github.com/dio-vibe/harness",
+  "license": "Apache-2.0",
+  "keywords": [
+    "harness",
+    "codex",
+    "agent-system",
+    "skill-architect",
+    "plugin",
+    "orchestration"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Harness",
+    "shortDescription": "Design Codex harnesses, roles, and skills",
+    "longDescription": "Build Codex-native harness packages that analyze a project, choose an orchestration pattern, define reusable specialist roles, and generate the skills and plugin scaffolding needed to repeat the workflow.",
+    "developerName": "dio-vibe",
+    "category": "Coding",
+    "capabilities": [
+      "Interactive",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/dio-vibe/harness",
+    "privacyPolicyURL": "https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement",
+    "termsOfServiceURL": "https://docs.github.com/en/site-policy/github-terms/github-terms-of-service",
+    "defaultPrompt": [
+      "Build a Codex harness for this project",
+      "Design a reusable Codex agent workflow for this repo",
+      "Create a plugin and skills that package this team workflow"
+    ],
+    "brandColor": "#F97316",
+    "composerIcon": "./assets/harness_icon.png",
+    "logo": "./assets/harness_banner.png",
+    "screenshots": [
+      "./assets/harness_team.png"
+    ]
+  }
+}

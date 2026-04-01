@@ -2,6 +2,20 @@
 
 이 프로젝트는 [Semantic Versioning](https://semver.org/)을 따릅니다.
 
+## [1.1.0] - 2026-04-02
+
+### Added
+
+- Codex plugin manifest at `.codex-plugin/plugin.json`
+- plugin assets under `assets/` for Codex UI metadata
+- bundled `skills/harness/references/` files that the skill actually references
+
+### Changed
+
+- `skills/harness/SKILL.md`를 Codex 실행 모델 기준으로 재작성
+- README를 Codex 포트 기준으로 정리하고 Claude 전용 개념을 Codex 개념으로 매핑
+- 하네스 출력 기본 구조를 repo-local plugin 패키지 중심으로 조정
+
 ## [1.0.1] - 2026-03-28
 
 ### Changed
