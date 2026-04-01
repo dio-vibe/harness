@@ -5,29 +5,29 @@
 <p align="center">
   <img src="https://img.shields.io/badge/Version-1.1.0-brightgreen.svg" alt="Version">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-Apache_2.0-blue.svg" alt="License"></a>
+  <img src="https://img.shields.io/badge/Claude_Code-Plugin-purple.svg" alt="Claude Code Plugin">
   <img src="https://img.shields.io/badge/Codex-Plugin-orange.svg" alt="Codex Plugin">
   <img src="https://img.shields.io/badge/Patterns-6_Architectures-orange.svg" alt="6 Architecture Patterns">
-  <img src="https://img.shields.io/badge/Mode-Local_First_%2B_Delegated_Agents-green.svg" alt="Local First and Delegated Agents">
+  <img src="https://img.shields.io/badge/Mode-Claude_%2B_Codex-green.svg" alt="Claude and Codex">
   <a href="https://github.com/revfactory/harness/stargazers"><img src="https://img.shields.io/github/stars/revfactory/harness?style=social" alt="GitHub Stars"></a>
 </p>
 
 # Harness
 
-**Agent System & Skill Architect** — A Codex Port of `revfactory/harness`
+**Agent Team & Skill Architect** — Dual support for Claude Code and Codex
 
 **English** | [한국어](README_KO.md) | [日本語](README_JA.md)
 
-A meta-skill that designs domain-specific agent teams, defines specialized agents, and generates the skills they use.
-
-This fork keeps the upstream Claude artifacts in place and adds a Codex-native surface beside them:
-
-- `.codex-plugin/plugin.json`
-- Codex-aware `skills/harness/SKILL.md`
-- bundled `references/` files that the skill actually points to
+A meta-skill that designs domain-specific agent workflows, defines specialized agents, and generates the skills they use.
 
 ## Overview
 
-Harness now targets Codex's execution model. Say "build a harness for this project" and it should generate a repo-local plugin or skill package tailored to your domain, with local-first orchestration and optional delegated specialists when the user explicitly asks for sub-agents.
+Harness now ships with two separate surfaces in one repo:
+
+- **Claude Code surface**: original upstream layout under `skills/` and `.claude-plugin/`
+- **Codex surface**: Codex-native layout under `skills-codex/` and `.codex-plugin/`
+
+This keeps Claude compatibility intact while giving Codex its own skill text, manifest, and references.
 
 ## Key Features
 
@@ -35,6 +35,7 @@ Harness now targets Codex's execution model. Say "build a harness for this proje
 - **Skill Generation** — Auto-generates skills with Progressive Disclosure for efficient context management
 - **Orchestration** — Inter-agent data passing, error handling, and team coordination protocols
 - **Validation** — Trigger verification, dry-run testing, and with-skill vs without-skill comparison tests
+- **Dual Runtime Support** — Claude and Codex use separate manifests and separate skill trees so they do not interfere with each other
 
 ## Workflow
 
@@ -52,20 +53,35 @@ Phase 5: Integration & Orchestration
 Phase 6: Validation & Testing
 ```
 
-## Codex Mapping
-
-| Upstream concept | Codex concept |
-|------|-------------|
-| `.claude-plugin/plugin.json` | `.codex-plugin/plugin.json` |
-| `.claude/skills/` | `skills/` |
-| Claude agent teams | main-agent orchestration plus optional `spawn_agent` |
-| `TeamCreate` / `SendMessage` / `TaskCreate` | local synthesis, file contracts, `spawn_agent`, `send_input`, `wait_agent` |
-
 ## Installation
 
-### As a local Codex plugin
+### Claude Code
 
-Clone or copy this repo where you keep local Codex plugins, then load the plugin from its `.codex-plugin/plugin.json` manifest. If you manage a local marketplace, point its entry at this repository's plugin root.
+#### Add the marketplace
+```shell
+/plugin marketplace add revfactory/harness
+```
+
+#### Install the plugin
+```shell
+/plugin install harness@harness
+```
+
+### Direct Installation as Global Skill
+
+```shell
+# Copy the skills directory to ~/.claude/skills/harness/
+cp -r skills/harness ~/.claude/skills/harness
+```
+
+### Codex
+
+Load this repository as a local Codex plugin via:
+
+- `.codex-plugin/plugin.json`
+- `skills-codex/`
+
+If you manage a local Codex marketplace, point the entry to this repo and use the Codex manifest instead of the Claude one.
 
 ## Plugin Structure
 
@@ -74,40 +90,51 @@ harness/
 ├── .codex-plugin/
 │   └── plugin.json                 # Codex plugin manifest
 ├── .claude-plugin/
-│   └── plugin.json                 # Upstream Claude manifest kept for reference
+│   └── plugin.json                 # Claude plugin manifest
 ├── assets/
 │   ├── harness_banner.png
 │   ├── harness_icon.png
 │   └── harness_team.png
 ├── skills/
-│   └── harness/
-│       ├── SKILL.md                # Main Codex skill definition
+│   └── harness/                    # Claude skill tree
+│       ├── SKILL.md
 │       └── references/
-│           ├── agent-design-patterns.md   # Codex architecture and delegation choices
-│           ├── orchestrator-template.md   # Orchestrator template and file contracts
-│           ├── team-examples.md           # Example harness layouts
-│           ├── skill-writing-guide.md     # Generated skill guidance
-│           ├── skill-testing-guide.md     # Validation methodology
-│           └── qa-agent-guide.md          # QA role guidance
+├── skills-codex/
+│   └── harness/                    # Codex skill tree
+│       ├── SKILL.md
+│       └── references/
+│           ├── agent-design-patterns.md   # Codex orchestration choices
+│           ├── orchestrator-template.md   # Codex orchestration templates
+│           ├── team-examples.md
+│           ├── skill-writing-guide.md
+│           ├── skill-testing-guide.md
+│           └── qa-agent-guide.md
 └── README.md
 ```
 
 ## Usage
 
-Trigger in Codex with prompts like:
+Trigger in either runtime with prompts like:
 
 ```
 Build a harness for this project
-Design a reusable Codex workflow for this domain
-Create a plugin and skills that package this workflow
+Design an agent team for this domain
+Set up a harness
 ```
+
+### Runtime behavior
+
+| Runtime | Manifest | Skill path | Notes |
+|------|-------------|-----------------|-------|
+| Claude Code | `.claude-plugin/plugin.json` | `skills/` | Upstream-compatible surface |
+| Codex | `.codex-plugin/plugin.json` | `skills-codex/` | Codex-native surface with local-first orchestration |
 
 ### Execution Modes
 
 | Mode | Description | Recommended For |
 |------|-------------|-----------------|
-| **Local-first** (default) | Main agent orchestrates and writes artifacts directly | Most coding and packaging work |
-| **Delegated specialists** | Main agent spawns bounded workers when the user explicitly requests delegation | Parallel read-heavy or disjoint implementation tasks |
+| **Agent Teams** (default) | TeamCreate + SendMessage + TaskCreate | 2+ agents requiring collaboration |
+| **Subagents** | Direct Agent tool invocation | One-off tasks, no inter-agent communication needed |
 
 <p align="center">
   <img src="harness_team.png" alt="Harness Agent Team" width="500">
@@ -130,21 +157,16 @@ Files generated by Harness:
 
 ```
 your-project/
-├── plugins/
-│   └── your-harness/
-│       ├── .codex-plugin/
-│       │   └── plugin.json
-│       └── skills/
-│           ├── orchestrate/
-│           │   ├── SKILL.md
-│           │   └── references/
-│           └── specialist/
-│               └── SKILL.md
+├── .claude/ or plugins/
+│   ├── agents/ or role docs
+│   └── skills/
+│       ├── orchestrator skill
+│       └── specialist skills
 ```
 
 ## Use Cases — Try These Prompts
 
-Copy any prompt below into Codex after loading Harness:
+Copy any prompt below into Claude Code after installing Harness:
 
 **Deep Research**
 ```
@@ -224,8 +246,8 @@ Key finding: effectiveness scales with task complexity — the harder the task, 
 
 ## Requirements
 
-- Codex environment with local plugin support
-- Optional: explicit user permission when you want the generated harness to use delegated agents
+- Claude Code users: [Agent Teams enabled](https://code.claude.com/docs/en/agent-teams): `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1`
+- Codex users: local plugin support and, if delegation is desired, explicit user permission for sub-agent use
 
 ## License
 

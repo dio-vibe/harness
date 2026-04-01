@@ -3,21 +3,24 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Version-1.0.1-brightgreen.svg" alt="Version">
+  <img src="https://img.shields.io/badge/Version-1.1.0-brightgreen.svg" alt="Version">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-Apache_2.0-blue.svg" alt="License"></a>
   <img src="https://img.shields.io/badge/Claude_Code-Plugin-purple.svg" alt="Claude Code Plugin">
+  <img src="https://img.shields.io/badge/Codex-Plugin-orange.svg" alt="Codex Plugin">
   <img src="https://img.shields.io/badge/Patterns-6_Architectures-orange.svg" alt="6 Architecture Patterns">
-  <img src="https://img.shields.io/badge/Mode-Agent_Teams-green.svg" alt="Agent Teams">
+  <img src="https://img.shields.io/badge/Mode-Claude_%2B_Codex-green.svg" alt="Claude and Codex">
   <a href="https://github.com/revfactory/harness/stargazers"><img src="https://img.shields.io/github/stars/revfactory/harness?style=social" alt="GitHub Stars"></a>
 </p>
 
 # Harness
 
-**Agent Team & Skill Architect** — Claude Code プラグイン
+**Agent Team & Skill Architect** — Claude Code / Codex 両対応
 
 [English](README.md) | [한국어](README_KO.md) | **日本語**
 
 ドメインやプロジェクトに最適なハーネスを構成し、専門エージェントを定義し、エージェントが使用するスキルを生成するメタスキル。
+
+> 注記: この文書は引き続き Claude Code 中心の説明です。Codex を使う場合は [README.md](README.md) の `Codex` セクションと `skills-codex/` の説明を確認してください。
 
 ## 概要
 
@@ -66,6 +69,12 @@ Phase 6: 検証とテスト
 # skillsディレクトリを ~/.claude/skills/harness/ にコピー
 cp -r skills/harness ~/.claude/skills/harness
 ```
+
+### Codex で使う場合
+
+- Codex は `.codex-plugin/plugin.json` を使います。
+- Codex 専用スキルツリーは `skills-codex/` にあります。
+- 両対応の詳細は [README.md](README.md) を参照してください。
 
 ## プラグイン構成
 

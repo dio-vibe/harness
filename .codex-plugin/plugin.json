@@ -17,7 +17,7 @@
     "plugin",
     "orchestration"
   ],
-  "skills": "./skills/",
+  "skills": "./skills-codex/",
   "interface": {
     "displayName": "Harness",
     "shortDescription": "Design Codex harnesses, roles, and skills",

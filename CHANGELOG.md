@@ -7,14 +7,14 @@
 ### Added
 
 - Codex plugin manifest at `.codex-plugin/plugin.json`
+- Codex-specific skill tree under `skills-codex/`
 - plugin assets under `assets/` for Codex UI metadata
-- bundled `skills/harness/references/` files that the skill actually references
 
 ### Changed
 
-- `skills/harness/SKILL.md`를 Codex 실행 모델 기준으로 재작성
-- README를 Codex 포트 기준으로 정리하고 Claude 전용 개념을 Codex 개념으로 매핑
-- 하네스 출력 기본 구조를 repo-local plugin 패키지 중심으로 조정
+- Claude surface는 `skills/`와 `.claude-plugin/`에서 유지
+- Codex surface는 `skills-codex/`와 `.codex-plugin/`으로 분리
+- README를 dual-support 구조 기준으로 정리
 
 ## [1.0.1] - 2026-03-28
 
