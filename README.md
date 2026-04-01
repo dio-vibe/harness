@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Version-1.1.0-brightgreen.svg" alt="Version">
+  <img src="https://img.shields.io/badge/Version-1.1.1-brightgreen.svg" alt="Version">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-Apache_2.0-blue.svg" alt="License"></a>
   <img src="https://img.shields.io/badge/Claude_Code-Plugin-purple.svg" alt="Claude Code Plugin">
   <img src="https://img.shields.io/badge/Codex-Plugin-orange.svg" alt="Codex Plugin">
@@ -82,6 +82,14 @@ Load this repository as a local Codex plugin via:
 - `skills-codex/`
 
 If you manage a local Codex marketplace, point the entry to this repo and use the Codex manifest instead of the Claude one.
+
+#### One-line install
+
+```shell
+curl -fsSL https://raw.githubusercontent.com/dio-vibe/harness/main/scripts/install-codex-plugin.sh | bash
+```
+
+The installer clones or updates `~/plugins/harness`, creates or updates `~/.agents/plugins/marketplace.json`, and registers the plugin for Codex. Re-run the same command later to update the local checkout.
 
 ## Plugin Structure
 

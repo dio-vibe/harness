@@ -2,6 +2,16 @@
 
 이 프로젝트는 [Semantic Versioning](https://semver.org/)을 따릅니다.
 
+## [1.1.1] - 2026-04-02
+
+### Added
+
+- `scripts/install-codex-plugin.sh` one-line installer for Codex users
+
+### Changed
+
+- README and README_KO now document the `curl | bash` Codex install path
+
 ## [1.1.0] - 2026-04-02
 
 ### Added

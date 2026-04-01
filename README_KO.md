@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Version-1.1.0-brightgreen.svg" alt="Version">
+  <img src="https://img.shields.io/badge/Version-1.1.1-brightgreen.svg" alt="Version">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-Apache_2.0-blue.svg" alt="License"></a>
   <img src="https://img.shields.io/badge/Claude_Code-Plugin-purple.svg" alt="Claude Code Plugin">
   <img src="https://img.shields.io/badge/Codex-Plugin-orange.svg" alt="Codex Plugin">
@@ -75,6 +75,14 @@ cp -r skills/harness ~/.claude/skills/harness
 - Codex는 `.codex-plugin/plugin.json`을 사용한다.
 - Codex 전용 스킬 트리는 `skills-codex/`에 있다.
 - 자세한 병용 구조는 [README.md](README.md)를 따른다.
+
+#### 한 줄 설치
+
+```shell
+curl -fsSL https://raw.githubusercontent.com/dio-vibe/harness/main/scripts/install-codex-plugin.sh | bash
+```
+
+이 스크립트는 `~/plugins/harness`를 clone 또는 update하고, `~/.agents/plugins/marketplace.json`을 생성 또는 갱신해서 Codex에서 바로 보이게 만든다.
 
 ## 플러그인 구조
 

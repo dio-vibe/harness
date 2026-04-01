@@ -1,6 +1,6 @@
 {
   "name": "harness",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Codex-native harness meta-skill that designs domain-specific agent systems, reusable skills, and optional plugin packages for a target project.",
   "author": {
     "name": "dio-vibe",
